@@ -1,16 +1,13 @@
-def solution(x):
-    answer = True
-    lili = []
-    arr = 0
-    z = x
-    while z != 0 :
-        lili.append(z%10)
-        z = z//10
-    for i in range(len(lili)) :
-        arr += lili[i]
-    if x%arr == 0 :
-        answer = True
-    elif x%arr != 0 :
-        answer = False
+def solution(num):
+    answer = 0
+    while num != 1  :
+        print(num)
+        answer +=1
+        if num %2 == 0 :
+            num = num//2
+        elif num %2 != 0  :
+            num = (num*3) +1
+        if answer >=500 :
+            return -1
     return answer
-print(solution(11))
+print(solution(6263314123513514123512351235123513211))
