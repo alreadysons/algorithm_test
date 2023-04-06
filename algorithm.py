@@ -1,13 +1,3 @@
-def solution(num):
-    answer = 0
-    while num != 1  :
-        print(num)
-        answer +=1
-        if num %2 == 0 :
-            num = num//2
-        elif num %2 != 0  :
-            num = (num*3) +1
-        if answer >=500 :
-            return -1
-    return answer
-print(solution(6263314123513514123512351235123513211))
+def solution(seoul):
+    return "김서방은 {}에 있다".format(seoul.index("Kim"))
+print(solution(["Jane", "Kim"]))    
