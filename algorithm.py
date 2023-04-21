@@ -1,12 +1,13 @@
-def solution(angle):
+def solution(n, m, section):
     answer = 0
-    if angle >0 and angle<90 :
-        answer = 1
-    elif angle == 90 :
-        answer = 2
-    elif angle >90 and angle<180 :
-        answer = 3
-    elif angle == 180 :
-        answer = 4
+    section.sort()
+    section_lenght = len(section)
+    idx = 0
+    while idx <section_lenght:
+        answer +=1
+        start = section[idx]
+        end = start + m - 1
+        while idx <section_lenght and section[idx] <= end :
+            idx +=1
     return answer
-print(solution(91))
+print(solution(4,1,[1,2,3,4]))
