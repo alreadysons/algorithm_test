@@ -1,13 +1,14 @@
-def solution(n, m, section):
+def solution(common):
     answer = 0
-    section.sort()
-    section_lenght = len(section)
-    idx = 0
-    while idx <section_lenght:
-        answer +=1
-        start = section[idx]
-        end = start + m - 1
-        while idx <section_lenght and section[idx] <= end :
-            idx +=1
+    diff = common[1] - common[0]
+    ratio = common[1] // common[0] if common[0] != 0 else None
+
+    is_arithmetic = all(common[i+1] - common[i] == diff for i in range(len(common) - 1))
+    is_geometric = all(common[i+1] // common[i] == ratio for i in range(len(common) - 1)) if ratio is not None and all(c != 0 for c in common[:-1]) else False
+
+    if is_arithmetic:
+        answer = common[-1] + diff
+    elif is_geometric:
+        answer = common[-1] * ratio
+        
     return answer
-print(solution(4,1,[1,2,3,4]))
