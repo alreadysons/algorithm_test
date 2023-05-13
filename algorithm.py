@@ -1,14 +1,19 @@
-def solution(common):
-    answer = 0
-    diff = common[1] - common[0]
-    ratio = common[1] // common[0] if common[0] != 0 else None
-
-    is_arithmetic = all(common[i+1] - common[i] == diff for i in range(len(common) - 1))
-    is_geometric = all(common[i+1] // common[i] == ratio for i in range(len(common) - 1)) if ratio is not None and all(c != 0 for c in common[:-1]) else False
-
-    if is_arithmetic:
-        answer = common[-1] + diff
-    elif is_geometric:
-        answer = common[-1] * ratio
-        
-    return answer
+def solution():
+    N = int(input())
+    S = input()
+    if N<1 and N>100 :
+        return False
+    elif S not in "T" :
+        return False
+    chk_A = 0
+    chk_T = 0
+    for i in range(N) :
+        if S[i] == "T" :
+            chk_T +=1
+        elif S[i] == "A" :
+            chk_A +=1
+    if chk_A>chk_T :
+        return print("A")
+    elif chk_A<chk_T or chk_T == chk_A :
+        return print("T")
+solution()
