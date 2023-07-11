@@ -1,17 +1,10 @@
-a,b = map(int,input().split())
-a_list = sorted(map(int,input().split()))
-ab = b
-
-for i in range(len(a_list)) :
-    chk = 0
-    for j in range(len(a_list)) :
-        for k in range(len(a_list)) :
-            if i==j or j==k or i==k :
-                continue
-            chk = a_list[i]+a_list[j]+a_list[k]
-            if chk > b :
-                continue
-            num = b-chk
-            ab = min(num,ab)
-
-print(b-ab)
+def sol(N) :
+    for i in range(1,N-1) :
+        chk_list = [int(j)for j in str(i)]
+        chk_sum = sum(chk_list) + i
+        if chk_sum == N :
+            return (print(i))
+    return print(0)
+        
+N = int(input())
+sol(N)
