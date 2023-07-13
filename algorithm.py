@@ -1,10 +1,7 @@
-def sol(N) :
-    for i in range(1,N-1) :
-        chk_list = [int(j)for j in str(i)]
-        chk_sum = sum(chk_list) + i
-        if chk_sum == N :
-            return (print(i))
-    return print(0)
+a,b,c,d,e,f = map(int,input().split())
+for x in range(-999,1000) :
+    for y in range(-999,1000) :
+        if a*x + b*y == c and d*x + e*y == f :
+            print(x,y)
+            break
         
-N = int(input())
-sol(N)
