@@ -1,7 +1,10 @@
-a,b,c,d,e,f = map(int,input().split())
-for x in range(-999,1000) :
-    for y in range(-999,1000) :
-        if a*x + b*y == c and d*x + e*y == f :
-            print(x,y)
-            break
-        
+count = 0
+chk = int(input())
+num = 666
+while count<chk :
+    if '666' in str(num) :
+        count+=1
+    if count == chk :
+        print(num)
+        break
+    num +=1
