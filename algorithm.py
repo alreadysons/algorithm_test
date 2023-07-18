@@ -1,10 +1,8 @@
-count = 0
-chk = int(input())
-num = 666
-while count<chk :
-    if '666' in str(num) :
-        count+=1
-    if count == chk :
-        print(num)
-        break
-    num +=1
+a = int(input())
+c = []
+for i in range(a) :
+    b = int(input())
+    c.append(b)
+cc = sorted(c)
+for i in range(len(cc)) :
+    print(cc[i])
