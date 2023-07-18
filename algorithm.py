@@ -1,8 +1,4 @@
-a = int(input())
-c = []
-for i in range(a) :
-    b = int(input())
-    c.append(b)
-cc = sorted(c)
-for i in range(len(cc)) :
-    print(cc[i])
+a,b = map(int,input().split())
+s = list(map(int,input().split()))
+ss = sorted(s)
+print(ss[-b])
