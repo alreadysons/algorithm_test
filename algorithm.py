@@ -1,10 +1,8 @@
-a = []
-for i in range(5) :
+a=int(input())
+s = []
+for i in range(a) :
     b = int(input())
-    a.append(b)
-c = sorted(a)
-avg = 0
-for i in range(len(c)) :
-    avg +=c[i]
-print(avg//5)
-print(c[2])
+    s.append(b)
+c = sorted(s)
+for i in range(len(s)) :
+    print(c[i])
