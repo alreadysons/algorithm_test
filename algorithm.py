@@ -1,8 +1,22 @@
 a=int(input())
-s = []
+s=[]
+input_com = []
 for i in range(a) :
-    b = int(input())
-    s.append(b)
-c = sorted(s)
-for i in range(len(s)) :
-    print(c[i])
+    input_com = [x for x in input().split()]
+    if input_com[0] == "push" :
+        s.append(int(input_com[1]))
+    elif input_com[0] == "top" :
+        if len(s) !=0 :
+            print(s[-1])
+        else : print(-1)    
+    elif input_com[0] == "size" :
+        print(len(s))
+    elif input_com[0] == "pop" :
+        if len(s) !=0 :
+            print(s.pop())
+        else : print(-1)
+    elif input_com[0] == "empty" :
+        if len(s) == 0 :
+            print(1)
+        else :
+            print(0)
