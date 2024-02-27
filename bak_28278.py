@@ -1,24 +1,17 @@
-usr_input = int(input())
+import sys
+usr_input = int(sys.stdin.readline())
 li = []
 for i in range(usr_input):
-    chk = input().split()
+    chk = sys.stdin.readline().rstrip().split()
     if len(chk) == 1:
-        if int(chk[0]) == 2:
-            if len(li) != 0:
-                print(li.pop())
-            else:
-                print(-1)
-        elif int(chk[0]) == 3:
+        command = int(chk[0])
+        if command == 2:
+            print(li.pop() if li else -1)
+        elif command == 3:
             print(len(li))
-        elif int(chk[0]) == 4:
-            if len(li) != 0:
-                print(0)
-            else:
-                print(1)
-        elif int(chk[0]) == 5:
-            if len(li) != 0:
-                print(li[-1])
-            else:
-                print(-1)
+        elif command == 4:
+            print(0 if li else 1)
+        elif command == 5:
+            print(li[-1] if li else -1)
     elif len(chk) == 2:
         li.append(int(chk[1]))
