@@ -43,3 +43,13 @@ while q :
             cnt += 1
 print(cnt)
 
+def dfs(v):
+    global count
+    visited[v] = True
+    for nxt in graph[v]:
+        if not visited[nxt]:
+            count += 1
+            dfs(nxt)
+
+dfs(1)
+print(count)
