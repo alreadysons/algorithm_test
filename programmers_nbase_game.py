@@ -25,41 +25,28 @@ N진수 게임
 출력 형식
 튜브가 말해야 하는 숫자 t개를 공백 없이 차례대로 나타낸 문자열. 단, 10~15는 각각 대문자 A~F로 출력한다.
 """
+DIGIT = "0123456789ABCDEF"
+
 def solution(n, t, m, p):
-    t_answer = []
-    idx_answer = ''
     answer = ''
+    num = []
+    t_answer = ''
     i = 0
-    if n == 2 :
-        while len(idx_answer) < t*m+m :
-            idx = bin(i)[2:]
-            t_answer.append(idx)
-            idx_answer = "".join(t_answer)
-            i +=1
-        for j in range(p-1,t*m,m) :
-            answer +=idx_answer[j]
-    elif n == 8 :
-        while len(idx_answer) < t*m+m :
-            idx = oct(i)[2:].upper()
-            t_answer.append(idx)
-            idx_answer = "".join(t_answer)
-            i +=1
-        for j in range(p-1,t*m,m) :
-            answer +=idx_answer[j]
-    elif n == 10 :
-        while len(idx_answer) < t*m+m :
-            idx = str(i)
-            t_answer.append(idx)
-            idx_answer = "".join(t_answer)
-            i +=1
-        for j in range(p-1,t*m,m) :
-            answer +=idx_answer[j]
-    elif n == 16 :
-        while len(idx_answer) < t*m+m :
-            idx = hex(i)[2:].upper()
-            t_answer.append(idx)
-            idx_answer = "".join(t_answer)
-            i +=1
-        for j in range(p-1,t*m,m) :
-            answer +=idx_answer[j]
+
+    while len(t_answer) < t * m:
+        temp = i
+        if temp == 0:
+            num.append("0")
+        else:
+            tempnum = ''
+            while temp > 0:
+                tempnum = DIGIT[temp % n] + tempnum
+                temp //= n
+            num.append(tempnum)
+        t_answer = ''.join(num)
+        i += 1
+
+    for j in range(t):
+        answer += t_answer[j*m + p - 1]
+
     return answer
